@@ -7,7 +7,7 @@
 //  Objective-C:
 //  Copyright 2012-2014, Google Inc. All rights reserved.
 //  https://github.com/GoogleChrome/OpenInChrome
-//  
+//
 //  Objective-C to Swift(iOS 9 SDK):
 //  Copyright 2016, KagurazakaYashi. All rights reserved.
 //  Created by KagurazakaYashi on 16/3/13.
@@ -53,7 +53,7 @@ class OpenInChromeController: NSObject {
         let chromeSimpleURL:NSURL = NSURL(string: kGoogleChromeHTTPScheme)!
         let chromeCallbackURL:NSURL = NSURL(string: kGoogleChromeCallbackScheme)!
         if (UIApplication.sharedApplication().canOpenURL(chromeCallbackURL)) {
-            let appName:String = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as! String
+            let appName:String = NSBundle.mainBundle().infoDictionary![kCFBundleNameKey as String] as! String //NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as! String
             let scheme:String = url.scheme.lowercaseString
             // Proceed only if scheme is http or https.
             if (scheme == "http" || scheme == "https") {
